@@ -1,3 +1,6 @@
+from nose.tools import assert_equal
+
+
 def anagram_checker(s1: str, s2: str) -> bool:
     # Anagram Check:
     # (Given two strings, check to see if they are anagrams.
@@ -14,7 +17,21 @@ def anagram_checker(s1: str, s2: str) -> bool:
     return True
 
 
+def rev_word(string: str) -> str:
+    # Given a string of words, reverse all the words
+    # 1st way
+    lst = string.split()
+    rev = ' '.join(lst[::-1]).strip()
+
+    # 2nd way
+    result = ''
+    for i in reversed(lst):
+        result += i + " "
+    return result.strip()
+
+
 if __name__ == "__main__":
+    print(rev_word('What do we have here ? '))
 
     print(anagram_checker('Dormitory', 'Dirty room'))
     print(anagram_checker('Conversation', 'Voices rant on'))
