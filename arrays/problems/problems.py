@@ -1,6 +1,3 @@
-from nose.tools import assert_equal
-
-
 def anagram_checker(s1: str, s2: str) -> bool:
     # Anagram Check:
     # (Given two strings, check to see if they are anagrams.
@@ -30,9 +27,22 @@ def rev_word(string: str) -> str:
     return result.strip()
 
 
-if __name__ == "__main__":
-    print(rev_word('What do we have here ? '))
+def compress(s: str):
+    if len(s) == 0:
+        return 'String is empty'
+    count = {}
+    for i in s:
+        if i in count:
+            count[i] += 1
+        count.setdefault(i, 1)
+    result = ''.join(f'{k}{v}' for (k, v) in count.items())
+    return result
 
-    print(anagram_checker('Dormitory', 'Dirty room'))
-    print(anagram_checker('Conversation', 'Voices rant on'))
-    print(anagram_checker('dog', 'god'))
+
+if __name__ == "__main__":
+    a = compress('aABBcC')
+    print(a)
+    # print(rev_word('What do we have here ? '))
+    # print(anagram_checker('Dormitory', 'Dirty room'))
+    # print(anagram_checker('Conversation', 'Voices rant on'))
+    # print(anagram_checker('dog', 'god'))
